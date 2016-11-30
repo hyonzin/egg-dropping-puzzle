@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include <string.h>
 #define MAX_EGG 1000000
 #define MAX_STORY 1000000
 
