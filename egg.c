@@ -39,6 +39,8 @@ int drop_egg (int egg, int story, int depth) {
 	}
 
 	if (egg > 1) {
+
+		// calculate it if this case has not been calculated previously
 		if (test[egg][story] == 0) {
 			printf("(%d) Trying %d-egg, %d-story -> %d \n", depth, egg, story, (int)(story/2.0));
 
