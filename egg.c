@@ -13,7 +13,7 @@ int max (int n1, int n2);
 int main(int argc, char* argv[]) {
 
 	if (argc < 3) {
-		printf("%s {egg} {story}\n", argv[0]);
+		//printf("%s {egg} {story}\n", argv[0]);
 		return -1;
 	}
 
@@ -41,7 +41,7 @@ int drop_egg (int egg, int story, int depth) {
 	}
 
 	if (egg == 1) {
-		printf("      - Only one egg remains. Return story %d \n", story);
+		//printf("      - Only one egg remains. Return story %d \n", story);
 		return story;
 	}
 
@@ -49,7 +49,7 @@ int drop_egg (int egg, int story, int depth) {
 
 		// calculate it if this case has not been calculated previously
 		if (test[egg][story] == 0) {
-			printf("(%d) Trying %d-egg, %d-story -> drop at %d \n", depth, egg, story, (int)(story/2.0));
+			//printf("(%d) Trying %d-egg, %d-story -> drop at %d \n", depth, egg, story, (int)(story/2.0));
 
 			//case1. egg is broken at (story/2)
 			int doesBreak = drop_egg(egg-1, (int)(story/2.0)-1, depth+1);
@@ -58,10 +58,10 @@ int drop_egg (int egg, int story, int depth) {
 			int doesNotBreak = drop_egg(egg, (int)(story/2.0), depth+1);
 
 			test[egg][story] = 1 + max(doesBreak, doesNotBreak);
-			printf("    > update test[%d][%d] = %d \n", egg, story, test[egg][story]);
+			//printf("    > update test[%d][%d] = %d \n", egg, story, test[egg][story]);
 	
 		} else {
-			printf("    > reuse test[%d][%d] = %d \n", egg, story, test[egg][story]);
+			//printf("    > reuse test[%d][%d] = %d \n", egg, story, test[egg][story]);
 		}
 
 		return test[egg][story];
