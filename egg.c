@@ -1,12 +1,25 @@
 #include <stdio.h>
+#include <time.h>
 
 int drop_egg (int egg, int story);
 int max (int n1, int n2);
 
 int main(int argc, char* argv[]) {
+	if (argc < 3) {
+		printf("%s {egg} {story}\n", argv[0]);
+		return -1;
+	}
 
-	printf ("%d \n", drop_egg(10,10000));
+	int egg = atoi(argv[1]);
+	int story = atoi(argv[2]);
 
+	time_t tStart, tFinish;
+
+	tStart = clock();
+	printf ("        ... Drop Eggs (%d, %d) = %d \n", egg, story, drop_egg(egg, story));
+	tFinish = clock();
+
+	printf ("        ... duration: %lf (ms) \n", (float)(tFinish - tStart)/CLOCKS_PER_SEC*1000);
 	return 0;
 }
 
