@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <time.h>
 #define MAX_EGG 1000000
 #define MAX_STORY 1000000
 
@@ -19,7 +20,13 @@ int main(int argc, char* argv[]) {
 	int egg = atoi(argv[1]);
 	int story = atoi(argv[2]);
 
+	time_t tStart, tFinish;
+
+	tStart = clock();
 	printf ("        ... Drop Eggs (%d, %d) = %d \n", egg, story, drop_egg_main(egg, story));
+	tFinish = clock();
+
+	printf ("        ... duration: %lf (ms) \n", (float)(tFinish - tStart)/CLOCKS_PER_SEC*1000);
 	return 0;
 }
 
@@ -42,7 +49,7 @@ int drop_egg (int egg, int story, int depth) {
 
 		// calculate it if this case has not been calculated previously
 		if (test[egg][story] == 0) {
-			printf("(%d) Trying %d-egg, %d-story -> %d \n", depth, egg, story, (int)(story/2.0));
+			printf("(%d) Trying %d-egg, %d-story -> drop at %d \n", depth, egg, story, (int)(story/2.0));
 
 			//case1. egg is broken at (story/2)
 			int doesBreak = drop_egg(egg-1, (int)(story/2.0)-1, depth+1);
