@@ -19,7 +19,7 @@ int main(int argc, char* argv[]) {
 	int egg = atoi(argv[1]);
 	int story = atoi(argv[2]);
 
-	printf ("        ... drop_egg_main (%d, %d) = %d \n", egg, story, drop_egg_main(egg, story));
+	printf ("        ... Drop Eggs (%d, %d) = %d \n", egg, story, drop_egg_main(egg, story));
 	return 0;
 }
 
