@@ -4,6 +4,8 @@
 int drop_egg (int egg, int story);
 int max (int n1, int n2);
 
+long cnt=0;
+
 int main(int argc, char* argv[]) {
 	if (argc < 3) {
 		printf("%s {egg} {story}\n", argv[0]);
@@ -20,6 +22,7 @@ int main(int argc, char* argv[]) {
 	tFinish = clock();
 
 	printf ("        ... duration: %lf (ms) \n", (float)(tFinish - tStart)/CLOCKS_PER_SEC*1000);
+	printf ("        ... cnt: %d \n", cnt);
 	return 0;
 }
 
@@ -32,6 +35,7 @@ int drop_egg (int egg, int story) {
 		return story;
 
 	if (egg > 1) {
+		cnt++;
 		return 1 + max(
 				//case1. egg is broken at (story/2)
 				drop_egg(egg-1, (int)(story/2.0)-1),
