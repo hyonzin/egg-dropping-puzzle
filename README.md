@@ -15,7 +15,7 @@ cd egg-dropping-puzzle
 make
 ```
 
-run
+run (egg, story)
 
 ```bash
 ./run 3 1001
