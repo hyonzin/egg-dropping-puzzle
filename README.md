@@ -11,6 +11,7 @@ git clone https://github.com/hyonzin/egg-dropping-puzzle.git
 compile
 
 ```bash
+cd egg-dropping-puzzle
 make
 ```
 
